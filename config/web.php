@@ -47,7 +47,7 @@ $config = [
                 'port' => '465',
                 'encryption' => 'ssl',
             ],
-            'useFileTransport' => false,
+            'useFileTransport' => false, //true - письма не отправляются, false - отправляются
         ],
 
         'sentry' => [
