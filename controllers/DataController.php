@@ -452,7 +452,8 @@ class DataController extends AppController
                                 $result = $record->update(false);
                                 $log[+$record->card]['result'] =  $result;
 
-                                if(!$is_vip && $discount) {
+                                //if(!$is_vip && $discount) {
+                                if($discount) {
                                     $this->sendNotifyMail($record);
 
                                     $old = [
