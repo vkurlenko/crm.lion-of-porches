@@ -52,7 +52,7 @@ class Data extends \yii\db\ActiveRecord
         return [
             [['card', 'user_name', 'activation_date', 'born_date', 'user_name', 'gender'], 'required'],
             [['card', 'discount', 'send_status'], 'integer'],
-            [['user_name', 'gender', 'comment', 'subscribe', 'sms'], 'string'],
+            [['user_name', 'gender', 'comment', 'subscribe', 'sms', 'sprdiscount', 'summapokupok', 'vid_card'], 'string'],
             [['born_date'], 'safe'],
             [['email'], 'email'],
             [['phone'], 'string', 'max' => 255],
@@ -72,6 +72,9 @@ class Data extends \yii\db\ActiveRecord
             'card' => 'Номер карты',
             'activation_date' => 'Дата активации',
             'discount' => 'Скидка',
+            'sprdiscount' => 'Скидки(наценки)',
+            'summapokupok' => 'Сумма покупок',
+            'vid_card' => 'vid_card',
             'user_name' => 'Имя клиента',
             'gender' => 'Пол',
             'age' => 'Возраст',

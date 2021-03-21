@@ -47,11 +47,15 @@ if (!\Yii::$app->user->can('manager')){
                     return $data->name ? sprintf("%'012d\n", $data->name) : '';
                 }
             ],*/
+            ['class' => 'yii\grid\ActionColumn', 'template' => $template],
             [
                 'attribute' => 'card',
                 'value' => function($data){
-                    return $data->card ? sprintf("%'013d\n", $data->card) : '';
-                }
+                    $card_number = $data->card ? sprintf("%'013d\n", $data->card) : '';
+
+                    return sprintf('<a href="/data/update?id=%s">%s</a>', $data->id, $card_number);
+                },
+                'format' => 'raw'
             ],
             [
                 'attribute' => 'activation_date',
@@ -68,8 +72,42 @@ if (!\Yii::$app->user->can('manager')){
                     return $data->discount ? $data->discount : '';
                 }
             ],
+            [
+                'attribute' => 'sprdiscount',
+                'value' => function($data){
+                    return $data->sprdiscount ? $data->sprdiscount : '';
+                }
+            ],
+            [
+                'attribute' => 'summapokupok',
+                'value' => function($data){
+                    return $data->summapokupok ? $data->summapokupok : '';
+                }
+            ],
+            [
+                'attribute' => 'vid_card',
+                'value' => function($data){
+                    return $data->vid_card ? $data->vid_card : '';
+                }
+            ],
+            [
+                'attribute' => 'user_name',
+                'value' => function($data){
+                    $arr = explode(' ', $data->user_name);
 
-            'user_name:ntext',
+                    foreach ($arr as $k => &$elem) {
+                        $elem = trim($elem);
+
+                        if ($elem == '') {
+                            unset($arr[$k]);
+                        }
+                    }
+
+                    return $data->user_name ? implode('<br>', $arr) : '';
+                },
+                'format' => 'raw'
+            ],
+            //'user_name:ntext',
             //'gender',
             [
                 'attribute' => 'gender',
@@ -160,7 +198,7 @@ if (!\Yii::$app->user->can('manager')){
                 'format' => 'raw'
             ],
 
-            ['class' => 'yii\grid\ActionColumn', 'template' => $template],
+            //['class' => 'yii\grid\ActionColumn', 'template' => $template],
         ],
     ]); ?>
 </div>
