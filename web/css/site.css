@@ -83,7 +83,13 @@ a.desc:after {
 }
 
 .grid-view th {
-    white-space: nowrap;
+    /*white-space: nowrap;*/
+    text-align: center;
+    vertical-align: top !important;
+}
+
+.grid-view td {
+    font-size: 12px;
 }
 
 .hint-block {

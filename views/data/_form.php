@@ -24,6 +24,12 @@ use app\controllers\AppController as App;
 
     <?= $form->field($model, 'discount')->textInput(['readonly' => !App::isAdmin()]) ?>
 
+    <?= $form->field($model, 'sprdiscount')->textInput(['value' => $model->isNewRecord ? 'Накопительные скидки' : $model->sprdiscount]) ?>
+
+    <?= $form->field($model, 'summapokupok')->textInput() ?>
+
+    <?= $form->field($model, 'vid_card')->textInput() ?>
+
     <?= $form->field($model, 'user_name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'gender')->radioList(['женский', 'мужской']);//dropDownList([ '0' => 'женский', '1' => 'мужской', ], ['prompt' => 'Выберите пол']) ?>

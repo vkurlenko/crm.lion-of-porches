@@ -71,6 +71,24 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
+                'attribute' => 'sprdiscount',
+                'value' => function($data){
+                    return $data->sprdiscount;
+                }
+            ],
+            [
+                'attribute' => 'summapokupok',
+                'value' => function($data){
+                    return $data->summapokupok;
+                }
+            ],
+            [
+                'attribute' => 'vid_card',
+                'value' => function($data){
+                    return $data->vid_card;
+                }
+            ],
+            [
                 'attribute' => 'activation_date',
                 'value' => function($data){
                     //$month =  intval(date("m", strtotime($data->activation_date)));
